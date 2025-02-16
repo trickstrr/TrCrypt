@@ -53,7 +53,7 @@ template <std::size_t N>
 class EncryptedString {
 public:
     constexpr EncryptedString(const char(&str)[N])
-        : key((N* UINT64_C(0x1337BEEF)) ^ UINT64_C(0xC0FFEE)), size(N), encrypted(encrypt_string(str)) {
+        : key((N* UINT64_C(0x8A5CB7A9D53C8B3F)) ^ UINT64_C(0xE7F9A267B41D52C9)), size(N), encrypted(encrypt_string(str)) {
     }
     friend std::ostream& operator<<(std::ostream& os, const EncryptedString& es) {
         os << es.decrypt();
