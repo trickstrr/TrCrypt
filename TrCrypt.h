@@ -34,8 +34,10 @@
 constexpr int f(int subblock, char key) {
     return subblock ^ key;
 }
+
+
 constexpr void encrypt_block(int& left, int& right, long long key) {
-    constexpr int rounds = 8;
+    constexpr int rounds = 16;
     for (int i = 0; i < rounds; i++) {
         int temp = right ^ f(left, static_cast<char>(key + i));
         if (i != 7) {
@@ -98,7 +100,7 @@ private:
         return decrypted_message.c_str();
     }
     static void decrypt_block(int& left, int& right, long long key) {
-        constexpr int rounds = 8;
+        constexpr int rounds = 16;
         for (int i = rounds - 1; i >= 0; i--) {
             int temp = left ^ f(right, static_cast<char>(key + i));
             if (i != 7) {
