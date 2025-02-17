@@ -43,13 +43,6 @@ TrCrypt uses a Feistel network with 8 rounds for encryption:
 3. Decryption occurs only when accessed
 4. Encryption key generated at compile-time, easily customizable
 
-### Change encryption Key
-
-Modify this line in the `EncryptedString` constructor:
-
-```cpp
-: key(INT_MAX / 0x100 - 0x1000)
-```
 
 ### Limitations
 
