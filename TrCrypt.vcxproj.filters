@@ -15,5 +15,8 @@
     <ClInclude Include="TrCrypt.h">
       <Filter>TrCrypt</Filter>
     </ClInclude>
+    <ClInclude Include="genSBOX.h">
+      <Filter>TrCrypt</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

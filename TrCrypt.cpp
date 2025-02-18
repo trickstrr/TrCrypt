@@ -1,14 +1,7 @@
-#include <iostream>
-#include <iomanip>
 #include "TrCrypt.h"
-
+#include <cstdio>
 
 int main() {
-    auto encrypted1 = CRYPT("Hello, World!");
-    std::cout << "Decrypted: " << encrypted1 << std::endl;
-    std::cout << CRYPT("Encrypted String!") << std::endl;
-
-    printf(CRYPT("Encrypted Print!"));
-
+    printf(TRCRYPT("Test String"));
     return 0;
 }
