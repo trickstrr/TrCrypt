@@ -10,6 +10,9 @@ TrCrypt is a lightweight **compile-time string encryption** library for **C++**,
 - **C++11+ Compatible** – Works with modern C++ standards.
 - **SBOX Generator** - You can use the genSbox.h to generate new SBoxes and inverted SBoxes. by: David Canright
 
+- ## **Bugs**
+- **UTF-8 Support** There is a bug that occures sometimes, that dont show UTF-8 Signs correctly. I am still working on a fix and push it as soon as i got it done.
+
 ## **Usage**
 ```cpp
 #include "TrCrypt.h"
