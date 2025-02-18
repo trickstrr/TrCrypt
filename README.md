@@ -1,60 +1,34 @@
-# TrCrypt
+# **TrCrypt – AES-128 Compile-time String Encryption for `printf`**  
 
-## Compile-time String Encryption for C++
+TrCrypt is a lightweight **compile-time string encryption** library for **C++**, designed to protect string literals from static analysis tools like **IDA Pro**. It ensures that **strings are never stored in plaintext** in the compiled binary.  
 
-TrCrypt is a lightweight, compile-time string encryption library for C++. It securely stores strings in your binary, making reverse engineering more challenging.
+## **Features**
+- **AES-128 Encryption at Compile-Time** – Strings are encrypted before compilation finishes.  
+- **Runtime Decryption** – Strings are decrypted **only when accessed** at runtime.  
+- **Optimized for `printf`** – Ensures compatibility with `printf`-based output formatting.  
+- **Heap Security** – Uses `SecureAllocator` to prevent heap dumps from revealing decrypted strings.  
+- **C++11+ Compatible** – Works with modern C++ standards.
+- **SBOX Generator** - You can use the genSbox.h to generate new SBoxes and inverted SBoxes. by: David Canright
 
-### Why TrCrypt?
+- ## **Bugs**
+- **UTF-8 Support** There is a bug that occures sometimes, that dont show UTF-8 Signs correctly. I am still working on a fix and push it as soon as i got it done.
 
-- Compile-time Encryption: No plain text in the binary
-- Runtime Decryption: Encrypted strings, decrypted only when needed
-- Easy to Use: Simple macro-based usage
-- Lightweight: Minimal overhead compared to plain text bins
-- Uses a 8  rounds Feistel network for encryption
-- C++11+ compatible
-- Works with ASCII and wide strings
-
-### Features
-
-- Compile-time string encryption
-- Runtime decryption
-- changeable encryption key (i use a dynamic algorith, you can change that easy)
-- Works with ASCII and wide strings
-
-
-
-### Example
-
+## **Usage**
 ```cpp
+#include "TrCrypt.h"
+#include <cstdio>
 
-    auto encrypted1 = CRYPT("Hello, World!");
-    std::cout << "Decrypted: " << encrypted1 << std::endl;
-
-    std::cout << CRYPT("Encrypted String!") << std::endl;
-
-    printf(CRYPT("Encrypted Print!"));
+int main() {
+    printf("%s\n", TRCRYPT("Hello, Secure World!"));
+    return 0;
+}
 ```
+**Output:** `"Hello, Secure World!"`  
 
-### How It Works
+## **Limitations**
+- **Performance Overhead** – Encryption & decryption introduce a slight runtime cost.  
+- **Limited String Size** – Large encrypted strings may impact **binary size**.  
 
-TrCrypt uses a Feistel network with 8 rounds for encryption:
-1. Strings encrypted at compile-time using constexpr functions
-2. Stored in encrypted form in the `EncryptedString` class
-3. Decryption occurs only when accessed
-4. Encryption key generated at compile-time, easily customizable
-
-### Change encryption Key
-
-Modify this line in the `EncryptedString` constructor:
-
-```cpp
-: key(INT_MAX / 0x100 - 0x1000)
-```
-
-### Limitations
-
-- Works best with strings that are multiples of 8 bytes
-- Very long strings might impact compile-time performance
-
-Licensed under the MIT License.
-Copyright by TrickSTRR
+## **License**
+**MIT License** – Free to use and modify.  
+**Author:** TrickSTRR
