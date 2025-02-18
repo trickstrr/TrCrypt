@@ -7,7 +7,8 @@ TrCrypt is a lightweight **compile-time string encryption** library for **C++**,
 - **Runtime Decryption** – Strings are decrypted **only when accessed** at runtime.  
 - **Optimized for `printf`** – Ensures compatibility with `printf`-based output formatting.  
 - **Heap Security** – Uses `SecureAllocator` to prevent heap dumps from revealing decrypted strings.  
-- **C++11+ Compatible** – Works with modern C++ standards.  
+- **C++11+ Compatible** – Works with modern C++ standards.
+- **SBOX Generator** - You can use the genSbox.h to generate new SBoxes and inverted SBoxes.
 
 ## **Usage**
 ```cpp
