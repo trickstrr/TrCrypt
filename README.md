@@ -1,4 +1,4 @@
-# **TrCrypt – AES-128 Compile-time String Encryption for `printf`**  
+# **TrCrypt v2 – AES-128 Compile-time String Encryption for `printf`**  
 
 TrCrypt is a lightweight **compile-time string encryption** header-only library for **C++**, designed to protect string literals from static analysis tools like **IDA Pro**. It ensures that **strings are never stored in plaintext** in the compiled binary.  
 
